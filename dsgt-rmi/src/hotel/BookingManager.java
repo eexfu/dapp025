@@ -1,19 +1,20 @@
 package hotel;
 
+import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.time.LocalDate;
 import java.util.*;
 
-public class BookingManager implements BookingManagerInterface {
+public class BookingManager implements IBookingManager {
 
 	private Room[] rooms;
 
 	public static void main(String args[]){
 		try{
 			BookingManager obj = new BookingManager();
-			BookingManagerInterface stub = (BookingManagerInterface) UnicastRemoteObject.exportObject(obj, 0);
+			IBookingManager stub = (IBookingManager) UnicastRemoteObject.exportObject(obj, 0);
 
 			Registry registry = LocateRegistry.getRegistry();
 			registry.bind("BookingManager", stub);
@@ -71,13 +72,21 @@ public class BookingManager implements BookingManagerInterface {
                     break;
                 }
 			}
+
+			try {
+				// slow down to test concurrency problem
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
 			if(available){
 				if(Objects.equals(room.getRoomNumber(), bookingDetail.getRoomNumber())){
 					room.getBookings().add(bookingDetail);
 				}
 			}
 			else{
-//				System.err.println("There is a booking in the date!");
+				System.err.println("There is a booking in the date!");
 			}
 		}
 	}
@@ -100,6 +109,11 @@ public class BookingManager implements BookingManagerInterface {
 			}
 		}
 		return rooms;
+	}
+
+	@Override
+	public synchronized IBookingSession getBookingSession() throws RemoteException {
+		return new BookingSession(this);
 	}
 
 	private static Room[] initializeRooms() {
