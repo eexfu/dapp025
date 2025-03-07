@@ -168,19 +168,26 @@ public class MealsRestController {
 //        }'
 //
 //
-//curl -X PUT "http://localhost:8080/rest/addOrderAndMeals/Leuven,Tiensestraat12" -H "Content-Type: application/json" -d '[
-//        {
-//        "id": "meal-001",
-//        "name": "Pizza",
-//        "description": "Delicious Pizza",
-//        "mealType": "MEAT",
-//        "kcal": 800,
-//        "price": 12.5
-//        },
-//        {
-//        "id": "meal-002",
-//        "name": "Salad",
-//        "description": "Fresh Salad",
-//        ]'  }   "price": 5.5"VEGAN",
-//
+curl -X PUT "http://localhost:8080/rest/addOrderAndMeals/Leuven,Tiensestraat12" \
+        -H "Content-Type: application/json" \
+        -d '[
+        {
+        "id": "meal-001",
+        "name": "Pizza",
+        "description": "Delicious Pizza",
+        "mealType": "MEAT",
+        "kcal": 800,
+        "price": 12.5
+        },
+        {
+        "id": "meal-002",
+        "name": "Salad",
+        "description": "Fresh Salad",
+        "mealType": "VEGAN",
+        "kcal": 300,
+        "price": 5.5
+        }
+        ]'
+
+
 //curl -X GET "http://localhost:8080/rest/findOrder/Leuven,Tiensestraat12"
