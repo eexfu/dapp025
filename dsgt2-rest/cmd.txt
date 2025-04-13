@@ -1,0 +1,75 @@
+-------------------Login Cloud VM---------------------
+ssh dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:8082
+[password: ABC123456abc@]
+
+-------------------Upload jar file---------------------
+scp food-rest-service-0.0.1-SNAPSHOT.jar dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:~/
+
+--------------------Run jar file-----------------------
+java -jar rest.jar --server.port=8082
+
+--------------------Add Meal------------------------------
+curl -X POST http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/addMeal         -H "Content-Type: application/json"         -d '{
+        "id": "new-meal-123",
+        "name": "Pasta",
+        "description": "Delicious pasta",
+        "mealType": "VEGAN",
+        "kcal": 600,
+        "price": 8.99
+        }'
+        
+--------------------Update Meal------------------------------
+curl -X PUT http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/updateMeal \
+        -H "Content-Type: application/json" \
+        -d '{
+        "id": "new-meal-123",
+        "name": "Updated Pasta",
+        "description": "More Delicious pasta",
+        "mealType": "VEGAN",
+        "kcal": 700,
+        "price": 9.99
+        }'
+        
+--------------------Delete Meal------------------------------
+curl -X DELETE http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/deleteMeal/new-meal-123
+
+--------------------Check Meal------------------------------
+curl -v -X GET http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/meals -H 'Content-type:application/json'
+
+--------------------Add Order------------------------------
+curl -X POST "http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/addOrder/Leuven,Tiensestraat12"
+
+--------------------Add Meal To Order------------------------------
+curl -X PUT "http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/addMealToOrder/Leuven,Tiensestraat12" -H "Content-Type: application/json" -d '{
+        "id": "meal-123",
+        "name": "Pasta",
+        "description": "Delicious pasta",
+        "mealType": "VEGAN",
+        "kcal": 500,
+        "price": 9.99
+        }'
+
+--------------------Add Order And Meals------------------------------
+curl -X PUT "http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/addOrderAndMeals/Leuven,Tiensestraat12" \
+        -H "Content-Type: application/json" \
+        -d '[
+        {
+        "id": "meal-001",
+        "name": "Pizza",
+        "description": "Delicious Pizza",
+        "mealType": "MEAT",
+        "kcal": 800,
+        "price": 12.5
+        },
+        {
+        "id": "meal-002",
+        "name": "Salad",
+        "description": "Fresh Salad",
+        "mealType": "VEGAN",
+        "kcal": 300,
+        "price": 5.5
+        }
+        ]'
+
+--------------------Check Order------------------------------
+curl -X GET "http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/findOrder/Leuven,Tiensestraat12"

@@ -8,7 +8,6 @@ import java.util.Set;
 
 import hotel.BookingDetail;
 import hotel.IBookingManager;
-import hotel.BookingSession;
 import hotel.IBookingSession;
 
 public class BookingClient extends AbstractScriptedSimpleTest {
@@ -16,7 +15,7 @@ public class BookingClient extends AbstractScriptedSimpleTest {
 	private IBookingManager stub = null;
 
 	public static void main(String[] args) throws Exception {
-		String host = (args.length < 1) ? null : args[0];
+		String host = (args.length < 1) ? "172.171.215.140" : args[0];
 		BookingClient client = new BookingClient(host);
 		client.run();
 		client.runMultiThreadTest();
@@ -29,7 +28,7 @@ public class BookingClient extends AbstractScriptedSimpleTest {
 	public BookingClient(String host) {
 		try {
 			//Look up the registered remote instance
-			Registry registry = LocateRegistry.getRegistry(host);
+			Registry registry = LocateRegistry.getRegistry(host, 5000);
 			stub = (IBookingManager) registry.lookup("BookingManager");
 		} catch (Exception exp) {
 			exp.printStackTrace();

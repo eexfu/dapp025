@@ -13,11 +13,12 @@ public class BookingManager implements IBookingManager {
 
 	public static void main(String args[]){
 		try{
+			System.setProperty("java.rmi.server.hostname", "172.171.215.140");
 			BookingManager obj = new BookingManager();
-			IBookingManager stub = (IBookingManager) UnicastRemoteObject.exportObject(obj, 0);
+			IBookingManager stub = (IBookingManager) UnicastRemoteObject.exportObject(obj, 5001);
 
-			Registry registry = LocateRegistry.getRegistry();
-			registry.bind("BookingManager", stub);
+			Registry registry = LocateRegistry.createRegistry(5000);
+			registry.rebind("BookingManager", stub);
 
 			System.err.println("Server ready");
 		}
