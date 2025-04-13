@@ -12,7 +12,7 @@ export let options = {
 };
 
 export default function () {
-  http.get('http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/meals');
+  http.get('dsgt2025westeu.westeurope.cloudapp.azure.com:3020/rest/meals');
   sleep(1);
 }
 

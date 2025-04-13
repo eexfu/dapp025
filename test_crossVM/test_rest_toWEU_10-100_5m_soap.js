@@ -36,7 +36,7 @@ const headers = {
 };
 
 export default function () {
-  const url = 'http://dapp25-fx.eastus.cloudapp.azure.com:8081/ws/meals';
+  const url = 'dsgt2025westeu.westeurope.cloudapp.azure.com:3010/ws/meals';
   http.post(url, soapPayload, { headers: headers });
 }
 

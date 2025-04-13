@@ -23,7 +23,7 @@ const headers = {
 };
 
 export default function () {
-  http.post('http://dapp25-fx.eastus.cloudapp.azure.com:8081/ws/meals', soapPayload, { headers: headers });
+  http.post('http://dsgt2025westeu.westeurope.cloudapp.azure.com:3010/ws/meals', soapPayload, { headers: headers });
 
   sleep(1);
 }

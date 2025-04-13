@@ -3,7 +3,7 @@ import { sleep } from 'k6';
 
 export let options = {
   vus: 50,
-  duration: '3m',
+  duration: '2m',
 };
 
 const soapPayload = `
@@ -17,15 +17,13 @@ const soapPayload = `
     </soapenv:Body>
 </soapenv:Envelope>`;
 
-const soapHeaders = {
+const headers = {
   'Content-Type': 'text/xml;charset=UTF-8',
   'SOAPAction': 'GET',
 };
 
 export default function () {
-  http.get('http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/meals');
-
-  http.post('http://dapp25-fx.eastus.cloudapp.azure.com:8081/ws/meals', soapPayload, { headers: soapHeaders });
+  http.post('http://dsgt2025westeu.westeurope.cloudapp.azure.com:3010/ws/meals', soapPayload, { headers: headers });
 
   sleep(1);
 }
