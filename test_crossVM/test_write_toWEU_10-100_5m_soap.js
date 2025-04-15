@@ -24,9 +24,13 @@ const soapPayload = `
                   xmlns:gs="http://foodmenu.io/gt/webservice">
     <soapenv:Header/>
     <soapenv:Body>
-        <gs:getMealRequest>
-            <gs:name>Portobello</gs:name>
-        </gs:getMealRequest>
+        <gs:addOrderRequest>
+            <gs:order>
+                <gs:address>DagobertStraat, Leuven</gs:address>
+                <gs:mealNames>Steak</gs:mealNames>
+                <gs:mealNames>Portobello</gs:mealNames>
+            </gs:order>
+        </gs:addOrderRequest>
     </soapenv:Body>
 </soapenv:Envelope>`;
 

@@ -6,7 +6,8 @@ ssh dsgt2025@dapp25-fx.eastus.cloudapp.azure.com
 [password: ABC123456abc@]
 
 -------------------Upload jar file---------------------
-scp rest.jar dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:~/Deploy
+scp rest.jar dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:~/Deploy [file]
+scp -r test_crossVM dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:~/ [folder]
 
 --------------------Run jar file-----------------------
 java -jar rest.jar --server.port=8082
@@ -409,20 +410,489 @@ Local->My Cloud;50;50/s;3 min;REST+SOAP:😀
 running (3m01.0s), 00/50 VUs, 7270 complete and 0 interrupted iterations
 default ✓ [======================================] 50 VUs  3m0s
 
-My Cloud->Friend Cloud;10;10/s;1 min;REST:
+My Cloud->Friend Cloud;10;10/s;1 min;REST:😀
 
-My Cloud->Friend Cloud;10;10/s;1 min;SOAP:
+My Cloud->Friend Cloud;10;10/s;1 min;SOAP:😀
+     execution: local
+        script: test_rest_toWEU_10_1m_soap.js
+        output: -
 
-My Cloud->Friend Cloud;50;50/s;2 min;REST:
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 1m30s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 1m0s (gracefulStop: 30s)
 
-My Cloud->Friend Cloud;50;50/s;2 min;SOAP:
 
-My Cloud->Friend Cloud;100;100/s;3 min;REST:
 
-My Cloud->Friend Cloud;100;100/s;3 min;SOAP:
+  █ TOTAL RESULTS 
 
-My Cloud->Friend Cloud;10->100;10->100/s;5 min;REST:
+    HTTP
+    http_req_duration.......................................................: avg=82.24ms min=79.67ms med=81.8ms max=91.27ms p(90)=84.54ms p(95)=85.52ms
+      { expected_response:true }............................................: avg=82.24ms min=79.67ms med=81.8ms max=91.27ms p(90)=84.54ms p(95)=85.52ms
+    http_req_failed.........................................................: 0.00%  0 out of 560
+    http_reqs...............................................................: 560    9.22008/s
 
-My Cloud->Friend Cloud;10->100;10->100/s;5 min;SOAP:
+    EXECUTION
+    iteration_duration......................................................: avg=1.08s   min=1.08s   med=1.08s  max=1.17s   p(90)=1.08s   p(95)=1.08s  
+    iterations..............................................................: 560    9.22008/s
+    vus.....................................................................: 10     min=10       max=10
+    vus_max.................................................................: 10     min=10       max=10
 
-My Cloud->Friend Cloud;50;50/s;3 min;REST+SOAP:
+    NETWORK
+    data_received...........................................................: 356 kB 5.9 kB/s
+    data_sent...............................................................: 292 kB 4.8 kB/s
+
+
+
+
+running (1m00.7s), 00/10 VUs, 560 complete and 0 interrupted iterations
+default ✓ [======================================] 10 VUs  1m0s
+
+My Cloud->Friend Cloud;50;50/s;2 min;REST:😀
+
+My Cloud->Friend Cloud;50;50/s;2 min;SOAP:😀
+     execution: local
+        script: test_rest_toWEU_50_2m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 50 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=82.2ms min=79.68ms med=81.54ms max=115.32ms p(90)=84.25ms p(95)=85.76ms
+      { expected_response:true }............................................: avg=82.2ms min=79.68ms med=81.54ms max=115.32ms p(90)=84.25ms p(95)=85.76ms
+    http_req_failed.........................................................: 0.00%  0 out of 5550
+    http_reqs...............................................................: 5550   46.089747/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.08s  min=1.07s   med=1.08s   max=1.2s     p(90)=1.08s   p(95)=1.08s  
+    iterations..............................................................: 5550   46.089747/s
+    vus.....................................................................: 50     min=50        max=50
+    vus_max.................................................................: 50     min=50        max=50
+
+    NETWORK
+    data_received...........................................................: 3.5 MB 29 kB/s
+    data_sent...............................................................: 2.9 MB 24 kB/s
+
+
+
+
+running (2m00.4s), 00/50 VUs, 5550 complete and 0 interrupted iterations
+default ✓ [======================================] 50 VUs  2m0s
+
+My Cloud->Friend Cloud;100;100/s;3 min;REST:😀
+
+My Cloud->Friend Cloud;100;100/s;3 min;SOAP:😀
+     execution: local
+        script: test_rest_toWEU_100_3m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 3m30s max duration (incl. graceful stop):
+              * default: 100 looping VUs for 3m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=82.4ms min=79.64ms med=81.54ms max=140.64ms p(90)=84.5ms p(95)=86.35ms
+      { expected_response:true }............................................: avg=82.4ms min=79.64ms med=81.54ms max=140.64ms p(90)=84.5ms p(95)=86.35ms
+    http_req_failed.........................................................: 0.00%  0 out of 16683
+    http_reqs...............................................................: 16683  92.130178/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.08s  min=1.07s   med=1.08s   max=1.23s    p(90)=1.08s  p(95)=1.08s  
+    iterations..............................................................: 16683  92.130178/s
+    vus.....................................................................: 83     min=83         max=100
+    vus_max.................................................................: 100    min=100        max=100
+
+    NETWORK
+    data_received...........................................................: 11 MB  59 kB/s
+    data_sent...............................................................: 8.7 MB 48 kB/s
+
+
+
+
+running (3m01.1s), 000/100 VUs, 16683 complete and 0 interrupted iterations
+default ✓ [======================================] 100 VUs  3m0s
+
+My Cloud->Friend Cloud;10->100;10->100/s;5 min;REST:😀
+
+My Cloud->Friend Cloud;10->100;10->100/s;5 min;SOAP:😀
+     execution: local
+        script: test_rest_toWEU_10-100_5m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 300 max VUs, 5m30s max duration (incl. graceful stop):
+              * ramping_rate_test: Up to 100.00 iterations/s for 5m0s over 5 stages (maxVUs: 50-300, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=81.44ms min=79.88ms med=81.32ms max=91.21ms p(90)=82.24ms p(95)=82.76ms
+      { expected_response:true }............................................: avg=81.44ms min=79.88ms med=81.32ms max=91.21ms p(90)=82.24ms p(95)=82.76ms
+    http_req_failed.........................................................: 0.00%  0 out of 14099
+    http_reqs...............................................................: 14099  46.985128/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=82.46ms min=79.95ms med=81.48ms max=168.6ms p(90)=82.47ms p(95)=83.12ms
+    iterations..............................................................: 14099  46.985128/s
+    vus.....................................................................: 8      min=0          max=13
+    vus_max.................................................................: 50     min=50         max=50
+
+    NETWORK
+    data_received...........................................................: 9.0 MB 30 kB/s
+    data_sent...............................................................: 7.4 MB 25 kB/s
+
+
+
+
+running (5m00.1s), 000/050 VUs, 14099 complete and 0 interrupted iterations
+ramping_rate_test ✓ [=======================] 000/050 VUs  5m0s  100.00 iters/s
+
+My Cloud->Friend Cloud;50;50/s;3 min;REST+SOAP:😀
+     execution: local
+        script: test_rest_toWEU_50_3m_restsoap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 3m30s max duration (incl. graceful stop):
+              * default: 50 looping VUs for 3m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=82ms  min=79.61ms med=81.31ms max=129.1ms p(90)=84.19ms p(95)=85.95ms
+      { expected_response:true }............................................: avg=82ms  min=79.61ms med=81.31ms max=129.1ms p(90)=84.19ms p(95)=85.95ms
+    http_req_failed.........................................................: 0.00%  0 out of 15500
+    http_reqs...............................................................: 15500  85.67447/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.16s min=1.15s   med=1.16s   max=1.38s   p(90)=1.16s   p(95)=1.17s  
+    iterations..............................................................: 7750   42.837235/s
+    vus.....................................................................: 50     min=50         max=50
+    vus_max.................................................................: 50     min=50         max=50
+
+    NETWORK
+    data_received...........................................................: 19 MB  106 kB/s
+    data_sent...............................................................: 5.0 MB 28 kB/s
+
+
+
+
+running (3m00.9s), 00/50 VUs, 7750 complete and 0 interrupted iterations
+default ✓ [======================================] 50 VUs  3m0s
+
+My Local -> My Cloud;10;10/s;1 min;SOAP(write):😀
+     execution: local
+        script: test_write_toEUS_10_1m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 1m30s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 1m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=162.63ms min=107.15ms med=137.23ms max=1.15s p(90)=182.82ms p(95)=198.24ms
+      { expected_response:true }............................................: avg=162.63ms min=107.15ms med=137.23ms max=1.15s p(90)=182.82ms p(95)=198.24ms
+    http_req_failed.........................................................: 0.00%  0 out of 520
+    http_reqs...............................................................: 520    8.50439/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.17s    min=1.11s    med=1.14s    max=2.31s p(90)=1.18s    p(95)=1.2s    
+    iterations..............................................................: 520    8.50439/s
+    vus.....................................................................: 3      min=3        max=10
+    vus_max.................................................................: 10     min=10       max=10
+
+    NETWORK
+    data_received...........................................................: 569 kB 9.3 kB/s
+    data_sent...............................................................: 378 kB 6.2 kB/s
+
+
+
+
+running (1m01.1s), 00/10 VUs, 520 complete and 0 interrupted iterations
+default ✓ [======================================] 10 VUs  1m0s
+
+My Local -> My Cloud;50;50/s;2 min;SOAP(write):😀
+     execution: local
+        script: test_write_toEUS_50_2m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 50 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=125.74ms min=100.55ms med=121.41ms max=271.95ms p(90)=141.93ms p(95)=154.53ms
+      { expected_response:true }............................................: avg=125.74ms min=100.55ms med=121.41ms max=271.95ms p(90)=141.93ms p(95)=154.53ms
+    http_req_failed.........................................................: 0.00%  0 out of 5302
+    http_reqs...............................................................: 5302   43.781118/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.13s    min=1.1s     med=1.12s    max=1.48s    p(90)=1.16s    p(95)=1.18s   
+    iterations..............................................................: 5302   43.781118/s
+    vus.....................................................................: 16     min=16        max=50
+    vus_max.................................................................: 50     min=50        max=50
+
+    NETWORK
+    data_received...........................................................: 5.8 MB 48 kB/s
+    data_sent...............................................................: 3.8 MB 32 kB/s
+
+
+
+
+running (2m01.1s), 00/50 VUs, 5302 complete and 0 interrupted iterations
+default ✓ [======================================] 50 VUs  2m0s
+
+My Local -> My Cloud;100;100/s;3 min;SOAP(write):😀
+     execution: local
+        script: test_write_toEUS_100_3m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 3m30s max duration (incl. graceful stop):
+              * default: 100 looping VUs for 3m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=122.5ms min=99.07ms med=116.99ms max=578.95ms p(90)=135ms p(95)=144.61ms
+      { expected_response:true }............................................: avg=122.5ms min=99.07ms med=116.99ms max=578.95ms p(90)=135ms p(95)=144.61ms
+    http_req_failed.........................................................: 0.00% 0 out of 15919
+    http_reqs...............................................................: 15919 87.895294/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.13s   min=1.09s   med=1.12s    max=1.92s    p(90)=1.15s p(95)=1.16s   
+    iterations..............................................................: 15919 87.895294/s
+    vus.....................................................................: 14    min=14         max=100
+    vus_max.................................................................: 100   min=100        max=100
+
+    NETWORK
+    data_received...........................................................: 17 MB 96 kB/s
+    data_sent...............................................................: 12 MB 64 kB/s
+
+
+
+
+running (3m01.1s), 000/100 VUs, 15919 complete and 0 interrupted iterations
+default ✓ [======================================] 100 VUs  3m0s
+
+My Local -> My Cloud;10 -> 100;10 -> 100/s;5 min;SOAP(write):😀
+     execution: local
+        script: test_write_toEUS_10-100_5m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 300 max VUs, 5m30s max duration (incl. graceful stop):
+              * ramping_rate_test: Up to 100.00 iterations/s for 5m0s over 5 stages (maxVUs: 50-300, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=113.97ms min=96.26ms med=112.54ms max=425.3ms  p(90)=123.24ms p(95)=127.83ms
+      { expected_response:true }............................................: avg=113.97ms min=96.26ms med=112.54ms max=425.3ms  p(90)=123.24ms p(95)=127.83ms
+    http_req_failed.........................................................: 0.00% 0 out of 14099
+    http_reqs...............................................................: 14099 46.980854/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=115.68ms min=96.39ms med=112.92ms max=425.39ms p(90)=124.65ms p(95)=130.52ms
+    iterations..............................................................: 14099 46.980854/s
+    vus.....................................................................: 11    min=1          max=17
+    vus_max.................................................................: 50    min=50         max=50
+
+    NETWORK
+    data_received...........................................................: 15 MB 51 kB/s
+    data_sent...............................................................: 10 MB 34 kB/s
+
+
+
+
+running (5m00.1s), 000/050 VUs, 14099 complete and 0 interrupted iterations
+ramping_rate_test ✓ [=======================] 000/050 VUs  5m0s  100.00 iters/s
+
+My Local -> My Cloud;50;50/s;3 min;SOAP+REST(write):😀
+     execution: local
+        script: test_write_toEUS_50_3m_restsoap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 3m30s max duration (incl. graceful stop):
+              * default: 50 looping VUs for 3m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=131.43ms min=99.55ms med=120.57ms max=1.89s p(90)=143.42ms p(95)=163.6ms
+      { expected_response:true }............................................: avg=131.43ms min=99.55ms med=120.57ms max=1.89s p(90)=143.42ms p(95)=163.6ms
+    http_req_failed.........................................................: 0.00%  0 out of 14154
+    http_reqs...............................................................: 14154  78.089887/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.27s    min=1.21s   med=1.24s    max=3.49s p(90)=1.3s     p(95)=1.34s  
+    iterations..............................................................: 7077   39.044944/s
+    vus.....................................................................: 17     min=17         max=50
+    vus_max.................................................................: 50     min=50         max=50
+
+    NETWORK
+    data_received...........................................................: 32 MB  174 kB/s
+    data_sent...............................................................: 6.0 MB 33 kB/s
+
+
+
+
+running (3m01.3s), 00/50 VUs, 7077 complete and 0 interrupted iterations
+default ✓ [======================================] 50 VUs  3m0s
+
+My Cloud -> Friend Cloud;10;10/s;1 min;SOAP(write):😀
+     execution: local
+        script: test_write_toWEU_10_1m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 1m30s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 1m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=82.36ms min=80.15ms med=82.14ms max=90.44ms p(90)=83.93ms p(95)=84.7ms
+      { expected_response:true }............................................: avg=82.36ms min=80.15ms med=82.14ms max=90.44ms p(90)=83.93ms p(95)=84.7ms
+    http_req_failed.........................................................: 0.00%  0 out of 560
+    http_reqs...............................................................: 560    9.210646/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.08s   min=1.08s   med=1.08s   max=1.19s   p(90)=1.08s   p(95)=1.08s 
+    iterations..............................................................: 560    9.210646/s
+    vus.....................................................................: 10     min=10       max=10
+    vus_max.................................................................: 10     min=10       max=10
+
+    NETWORK
+    data_received...........................................................: 420 kB 6.9 kB/s
+    data_sent...............................................................: 392 kB 6.4 kB/s
+
+
+
+
+running (1m00.8s), 00/10 VUs, 560 complete and 0 interrupted iterations
+default ✓ [======================================] 10 VUs  1m0s
+
+My Cloud -> Friend Cloud;50;50/s;2 min;SOAP(write):😀
+     execution: local
+        script: test_write_toWEU_50_2m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 50 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=82.92ms min=79.72ms med=82.57ms max=122.33ms p(90)=84.86ms p(95)=86.22ms
+      { expected_response:true }............................................: avg=82.92ms min=79.72ms med=82.57ms max=122.33ms p(90)=84.86ms p(95)=86.22ms
+    http_req_failed.........................................................: 0.00%  0 out of 5550
+    http_reqs...............................................................: 5550   46.025013/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.08s   min=1.07s   med=1.08s   max=1.21s    p(90)=1.08s   p(95)=1.08s  
+    iterations..............................................................: 5550   46.025013/s
+    vus.....................................................................: 50     min=50        max=50
+    vus_max.................................................................: 50     min=50        max=50
+
+    NETWORK
+    data_received...........................................................: 4.2 MB 35 kB/s
+    data_sent...............................................................: 3.9 MB 32 kB/s
+
+
+
+
+running (2m00.6s), 00/50 VUs, 5550 complete and 0 interrupted iterations
+default ✓ [======================================] 50 VUs  2m0s
+
+My Cloud -> Friend Cloud;100;100/s;3 min;SOAP(write):😀
+     execution: local
+        script: test_write_toWEU_100_3m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 3m30s max duration (incl. graceful stop):
+              * default: 100 looping VUs for 3m0s (gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=83.25ms min=79.85ms med=82.64ms max=192.05ms p(90)=85.39ms p(95)=87.1ms
+      { expected_response:true }............................................: avg=83.25ms min=79.85ms med=82.64ms max=192.05ms p(90)=85.39ms p(95)=87.1ms
+    http_req_failed.........................................................: 0.00% 0 out of 16620
+    http_reqs...............................................................: 16620 91.782502/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=1.08s   min=1.07s   med=1.08s   max=1.23s    p(90)=1.08s   p(95)=1.08s 
+    iterations..............................................................: 16620 91.782502/s
+    vus.....................................................................: 20    min=20         max=100
+    vus_max.................................................................: 100   min=100        max=100
+
+    NETWORK
+    data_received...........................................................: 13 MB 69 kB/s
+    data_sent...............................................................: 12 MB 64 kB/s
+
+
+
+
+running (3m01.1s), 000/100 VUs, 16620 complete and 0 interrupted iterations
+default ✓ [======================================] 100 VUs  3m0s
+
+My Cloud -> Friend Cloud;10 -> 100;10 -> 100/s;5 min;SOAP(write):😀
+     execution: local
+        script: test_write_toWEU_10-100_5m_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 300 max VUs, 5m30s max duration (incl. graceful stop):
+              * ramping_rate_test: Up to 100.00 iterations/s for 5m0s over 5 stages (maxVUs: 50-300, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    HTTP
+    http_req_duration.......................................................: avg=84.85ms min=80.05ms med=82.35ms max=4.89s p(90)=83.71ms p(95)=84.5ms 
+      { expected_response:true }............................................: avg=84.85ms min=80.05ms med=82.35ms max=4.89s p(90)=83.71ms p(95)=84.5ms 
+    http_req_failed.........................................................: 0.00%  0 out of 14099
+    http_reqs...............................................................: 14099  46.985041/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=85.88ms min=80.2ms  med=82.52ms max=4.89s p(90)=83.96ms p(95)=85.19ms
+    iterations..............................................................: 14099  46.985041/s
+    vus.....................................................................: 9      min=0          max=12
+    vus_max.................................................................: 50     min=50         max=50
+
+    NETWORK
+    data_received...........................................................: 11 MB  35 kB/s
+    data_sent...............................................................: 9.9 MB 33 kB/s
+
+
+
+
+running (5m00.1s), 000/050 VUs, 14099 complete and 0 interrupted iterations
+ramping_rate_test ✓ [=======================] 000/050 VUs  5m0s  100.00 iters/s
+
+My Cloud -> Friend Cloud;50;50/s;3 min;SOAP+REST(write):😀
+
