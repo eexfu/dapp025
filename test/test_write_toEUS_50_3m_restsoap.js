@@ -27,8 +27,34 @@ const soapHeaders = {
   'SOAPAction': 'GET',
 };
 
+const address = "Leuven,Tiensestraat12";
+const url = `http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/addOrderAndMeals/${encodeURIComponent(address)}`;
+
+const jsonPayload = JSON.stringify([
+  {
+    id: "meal-001",
+    name: "Pizza",
+    description: "Delicious Pizza",
+    mealType: "MEAT",
+    kcal: 800,
+    price: 12.5
+  },
+  {
+    id: "meal-002",
+    name: "Salad",
+    description: "Fresh Salad",
+    mealType: "VEGAN",
+    kcal: 300,
+    price: 5.5
+  }
+]);
+
+const headers = {
+  'Content-Type': 'application/json'
+};
+
 export default function () {
-  http.get('http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/addOrderAndMeals');
+  http.put(url, jsonPayload, { headers });
 
   http.post('http://dapp25-fx.eastus.cloudapp.azure.com:8081/ws/meals', soapPayload, { headers: soapHeaders });
 
