@@ -11,8 +11,8 @@ scp -r test_crossVM dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:~/ [folder]
 
 --------------------Run jar file-----------------------
 java -jar rest.jar --server.port=8082
-nohup java -Xlog:gc*:file=logs/gc.log:time,uptime,level,tags -jar rest.jar --server.port=8082 > logs/app.log 2>&1 &
-nohup java -Xlog:gc*:file=logs/gc.log:time,uptime,level,tags -jar soap.jar --server.port=8081 > logs/app.log 2>&1 &
+nohup java -Xlog:gc*:file=logs_rest/gc.log:time,uptime,level,tags -jar rest.jar --server.port=8082 > logs/app.log 2>&1 &
+nohup java -Xlog:gc*:file=logs_soap/gc.log:time,uptime,level,tags -jar soap.jar --server.port=8081 > logs/app.log 2>&1 &
 
 ------------------------sar + GC-----------------------
 sar -u 1 > logs_rest/cpu.log & sar -n DEV 1 > logs_rest/net.log & sar -r 1 > logs_rest/memory.log & sar -d 1 > logs_rest/disk_io.log & sar -q 1 > logs_rest/run_queue.log &
