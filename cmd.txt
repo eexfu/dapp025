@@ -11,6 +11,12 @@ scp -r test_crossVM dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:~/ [folder]
 
 --------------------Run jar file-----------------------
 java -jar rest.jar --server.port=8082
+nohup java -Xlog:gc*:file=logs/gc.log:time,uptime,level,tags -jar rest.jar --server.port=8082 > logs/app.log 2>&1 &
+
+------------------------sar + GC-----------------------
+sar -u 1 > logs/cpu.log & sar -n DEV 1 > logs/net.log &
+ps aux | grep sar
+killall sar
 
 --------------------Run rmi registry(server and client)-----------------------
 rmiregistry -J-Djava.class.path=server.jar 1099 &
