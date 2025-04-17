@@ -1,0 +1,48 @@
+     execution: local
+        script: test_read_stressTest_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 500 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: Up to 500 looping VUs for 10m0s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✓ 'p(95)<1000' p(95)=307.79ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......................: 1790270 2982.637436/s
+    checks_succeeded...................: 99.82%  1787161 out of 1790270
+    checks_failed......................: 0.17%   3109 out of 1790270
+
+    ✓ status is 200
+    ✗ response time < 1s
+      ↳  99% — ✓ 892026 / ✗ 3109
+
+    HTTP
+    http_req_duration.......................................................: avg=165.76ms min=93.53ms med=137.94ms max=3.22s p(90)=218.51ms p(95)=307.79ms
+      { expected_response:true }............................................: avg=165.76ms min=93.53ms med=137.94ms max=3.22s p(90)=218.51ms p(95)=307.79ms
+    http_req_failed.........................................................: 0.00%  0 out of 895135
+    http_reqs...............................................................: 895135 1491.318718/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=167.33ms min=93.64ms med=138.58ms max=3.74s p(90)=226.09ms p(95)=312.98ms
+    iterations..............................................................: 895135 1491.318718/s
+    vus.....................................................................: 499    min=1           max=499
+    vus_max.................................................................: 500    min=500         max=500
+
+    NETWORK
+    data_received...........................................................: 568 MB 946 kB/s
+    data_sent...............................................................: 464 MB 773 kB/s
+
+
+
+
+running (10m00.2s), 000/500 VUs, 895135 complete and 0 interrupted iterations
+default ✓ [======================================] 000/500 VUs  10m0s
+

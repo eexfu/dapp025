@@ -1,0 +1,48 @@
+     execution: local
+        script: test_read_soakTest_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 1h4m30s max duration (incl. graceful stop):
+              * default: Up to 50 looping VUs for 1h4m0s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+  █ THRESHOLDS 
+
+    http_req_duration
+    ✓ 'p(95)<500' p(95)=134.91ms
+    ✓ 'p(99)<1000' p(99)=undefined
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......................: 174984 45.567206/s
+    checks_succeeded...................: 99.97% 174940 out of 174984
+    checks_failed......................: 0.02%  44 out of 174984
+
+    ✓ status is 200
+    ✗ response time < 500ms
+      ↳  99% — ✓ 87448 / ✗ 44
+
+    HTTP
+    http_req_duration.......................................................: avg=119.51ms min=100.16ms med=117.08ms max=1.16s p(90)=128.66ms p(95)=134.91ms
+      { expected_response:true }............................................: avg=119.51ms min=100.16ms med=117.08ms max=1.16s p(90)=128.66ms p(95)=134.91ms
+    http_req_failed.........................................................: 0.00% 0 out of 87492
+    http_reqs...............................................................: 87492 22.783603/s
+
+    EXECUTION
+    iteration_duration......................................................: avg=2.12s    min=1.11s    med=2.12s    max=3.87s p(90)=2.92s    p(95)=3.02s   
+    iterations..............................................................: 87492 22.783603/s
+    vus.....................................................................: 1     min=1          max=50
+    vus_max.................................................................: 50    min=50         max=50
+
+    NETWORK
+    data_received...........................................................: 56 MB 14 kB/s
+    data_sent...............................................................: 45 MB 12 kB/s
+
+
+
+
+running (1h04m00.1s), 00/50 VUs, 87492 complete and 0 interrupted iterations
+default ✓ [======================================] 00/50 VUs  1h4m0s

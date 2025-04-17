@@ -1,0 +1,42 @@
+     execution: local
+        script: test_read_securityTest_soap.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 20 max VUs, 5m0s max duration (incl. graceful stop):
+              * malformed_requests: Up to 20 looping VUs for 4m30s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......................: 8272    30.530027/s
+    checks_succeeded...................: 100.00% 8272 out of 8272
+    checks_failed......................: 0.00%   0 out of 8272
+
+    ✓ Received 4xx or 5xx (expected)
+    ✓ No 502/503 (server stable)
+
+    CUSTOM
+    security_response_times..........................: avg=82.823889 min=79.970673 med=82.007714 max=387.180938 p(90)=84.545098 p(95)=85.757587
+
+    HTTP
+    http_req_duration................................: avg=82.82ms   min=79.97ms   med=82ms      max=387.18ms   p(90)=84.54ms   p(95)=85.75ms  
+    http_req_failed..................................: 100.00% 4136 out of 4136
+    http_reqs........................................: 4136    15.265013/s
+
+    EXECUTION
+    iteration_duration...............................: avg=1.12s     min=1.08s     med=1.08s     max=1.47s      p(90)=1.16s     p(95)=1.16s    
+    iterations.......................................: 4136    15.265013/s
+    vus..............................................: 1       min=1            max=20
+    vus_max..........................................: 20      min=20           max=20
+
+    NETWORK
+    data_received....................................: 341 kB  1.3 kB/s
+    data_sent........................................: 1.8 MB  6.5 kB/s
+
+
+
+
+running (4m30.9s), 00/20 VUs, 4136 complete and 0 interrupted iterations
+malformed_requests ✓ [======================================] 00/20 VUs  4m30s
+

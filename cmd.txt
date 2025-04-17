@@ -1,8 +1,10 @@
 -------------------IP Address---------------------
 http://dapp25-fx.eastus.cloudapp.azure.com:8082/rest/meals
+http://dsgt2025westeu.westeurope.cloudapp.azure.com
 
 -------------------Login Cloud VM---------------------
 ssh dsgt2025@dapp25-fx.eastus.cloudapp.azure.com
+ssh dsgt2025@dsgt2025westeu.westeurope.cloudapp.azure.com
 [password: ABC123456abc@]
 
 -------------------Upload jar file---------------------
