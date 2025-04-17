@@ -8,6 +8,7 @@ ssh dsgt2025@dapp25-fx.eastus.cloudapp.azure.com
 -------------------Upload jar file---------------------
 scp rest.jar dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:~/Deploy [file]
 scp -r test_crossVM dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:~/ [folder]
+scp -r dsgt2025@dapp25-fx.eastus.cloudapp.azure.com:~/Deploy/logs_soap ~/Projects/dapp025/test
 
 --------------------Run jar file-----------------------
 java -jar rest.jar --server.port=8082
