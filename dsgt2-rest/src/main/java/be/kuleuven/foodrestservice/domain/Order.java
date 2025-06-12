@@ -7,7 +7,10 @@ import java.util.List;
 
 public class Order {
     private String address;
-    private static final Map<String, Meal> meals = new HashMap<>();
+    // each order should maintain its own meals. Using a static map
+    // would cause all orders to share the same collection which is
+    // not intended.
+    private final Map<String, Meal> meals = new HashMap<>();
 
     public Order(String address) {
         this.address = address;
